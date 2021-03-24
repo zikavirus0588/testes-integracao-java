@@ -42,6 +42,13 @@ class UsuarioDaoTest {
         entaoDeveriaLancarException(new NoResultException(),"ciclano");
     }
 
+    @Test
+    void deveriaRemoverUmUsuario() {
+        seRequerUsuario();
+        quandoDeletarUsuario(user);
+        entaoDeveriaLancarException(new NoResultException(),user.getNome());
+    }
+
     private void seRequerUsuario() {
         this.user = new Usuario("fulano","fulano@email.com","123456");
         em.persist(user);
@@ -49,6 +56,10 @@ class UsuarioDaoTest {
 
     private Usuario quandoBuscarUsuario(String nome) {
         return dao.buscarPorUsername(nome);
+    }
+
+    private void quandoDeletarUsuario(Usuario usuario) {
+        dao.deletar(usuario);
     }
 
     private void entaoDeveriaEncontrarUsuarioNoBanco(Usuario usuario) {
