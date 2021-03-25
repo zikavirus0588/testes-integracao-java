@@ -1,5 +1,6 @@
 package br.com.alura.leilao.login;
 
+import br.com.alura.leilao.leiloes.LeiloesPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class LoginTest {
 
     private LoginPage paginaDeLogin;
+    private LeiloesPage paginaDeLeilao;
 
     @BeforeEach
     public void setUp() {
@@ -47,11 +49,11 @@ public class LoginTest {
     }
 
     private void seRequerLogin(String user, String password) {
-        paginaDeLogin.preencheFormularioDeLogin(user,password);
+        paginaDeLogin.preencheFormularioDeLogin(user, password);
     }
 
     private void quandoEfetuarLogin() {
-        paginaDeLogin.efetuaLogin();
+        this.paginaDeLeilao = paginaDeLogin.efetuaLogin();
     }
 
     private void quandoNavegarParaPaginaDeLeilaoUnico(String id) {
@@ -73,7 +75,4 @@ public class LoginTest {
         assertTrue(paginaDeLogin.isPaginaDeLogin());
         assertFalse(paginaDeLogin.containsMensagem(mensagem));
     }
-
-
-
 }

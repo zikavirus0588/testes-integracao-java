@@ -10,14 +10,14 @@
 		
 				<div class="form-group">
 					<label for="nome">Nome:</label>
-					<input th:field="*{nome}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do leilão">
+					<input id="nome" th:field="*{nome}" th:errorclass="is-invalid" class="form-control" placeholder="Nome do leilão">
 					<small>Coloque um nome expressivo</small>
 					<p class="alert alert-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
 				</div>
 			
 				<div class="form-group">
 					<label for="valorInicial">Valor inicial:</label>
-					<input th:field="*{valorInicial}" th:errorclass="is-invalid" class="form-control" placeholder="Valor inicial">
+					<input id="valorInicial" th:field="*{valorInicial}" th:errorclass="is-invalid" class="form-control" placeholder="Valor inicial">
 					<small>Coloque um valor > 0.1</small>
 					<p class="alert alert-danger" th:if="${#fields.hasErrors('valorInicial')}" th:errors="*{valorInicial}">
 				</div>
@@ -32,7 +32,7 @@
 			
 				<div class="form-group">
 					<label for="usuario">Usuário:</label>
-					<input th:value="${usuario}" class="form-control" placeholder="Nome do Usuário" type="text" readonly>
+					<input id="usuario" th:value="${usuario}" class="form-control" placeholder="Nome do Usuário" type="text" readonly>
 				</div>
 
 				<button class="btn btn-primary" id="button-submit" type="submit" role="button">Salvar</button>
