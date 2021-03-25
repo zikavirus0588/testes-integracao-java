@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class LeiloesPage {
 
     private final WebDriver browser;
-    private static final String URL_LEILOES = "http://localhost:8080/leiloes";
+    private static final String CURRENT_URL = "http://localhost:8080/leiloes";
 
     public LeiloesPage(WebDriver browser) {
         this.browser = browser;
@@ -32,5 +32,9 @@ public class LeiloesPage {
         return colunaNome.getText().equals(nome)
                 && colunaDataAbertura.getText().equals(dataAbertura)
                 && colunaValorInicial.getText().equals(valorInicial);
+    }
+
+    public boolean isPaginaAtual() {
+        return browser.getCurrentUrl().equals(CURRENT_URL);
     }
 }
