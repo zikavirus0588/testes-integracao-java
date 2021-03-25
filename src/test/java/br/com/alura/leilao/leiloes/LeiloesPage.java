@@ -1,22 +1,18 @@
 package br.com.alura.leilao.leiloes;
 
+import br.com.alura.leilao.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LeiloesPage {
+public class LeiloesPage extends PageObject {
 
-    private final WebDriver browser;
     private static final String CURRENT_URL = "http://localhost:8080/leiloes";
 
     public LeiloesPage(WebDriver browser) {
-        this.browser = browser;
-    }
-
-    public void fechar() {
-        this.browser.quit();
+        super(browser);
     }
 
     public CadastroLeilaoPage carregarFormulario() {

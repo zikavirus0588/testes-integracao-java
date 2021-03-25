@@ -1,11 +1,11 @@
 package br.com.alura.leilao.leiloes;
 
+import br.com.alura.leilao.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CadastroLeilaoPage {
+public class CadastroLeilaoPage extends PageObject {
 
-    private final WebDriver browser;
     private final static String CURRENT_URL = "http://localhost:8080/leiloes/new";
     private final static String MIN_CHAR = "minimo 3 caracteres";
     private final static String NOT_BLANK = "não deve estar em branco";
@@ -14,11 +14,7 @@ public class CadastroLeilaoPage {
 
 
     public CadastroLeilaoPage(WebDriver browser) {
-        this.browser = browser;
-    }
-
-    public void fechar() {
-        this.browser.quit();
+        super(browser);
     }
 
     public void preencherFormulario(String nome, String valorInicial, String dataAbertura) {
